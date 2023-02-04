@@ -1,0 +1,83 @@
+
+ROM used:   1507/8192 (18%)
+            1507/8192 (18%) including unused fragments
+
+            1.1 Average locations per line
+            8.1 Average locations per statement
+
+RAM used:   11/368 (3%) at main() level
+            49/368 (13%) worst case
+
+Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  184    66  35  lcd_cgram_juewito.c
+  672     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+  456   100  53  lcd2.c
+   49    21  11  buzzer_tone.c
+----- -----
+ 1361   187 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     21   1    1             @delay_ms1
+ Inline         1             @delay_us1
+ Inline         3    760  4.5  lcd_read_byte
+0     49   3    2    262  3.7  lcd_read_nibble
+0     43   3    1    399  2.4  lcd_send_nibble
+0     92   6    3    415  3.7  lcd_send_byte
+0     70   5    6    852  6.2  lcd_init
+0     18   1    4    208  6.3  lcd_gotoxy
+0     44   3    1    354  4.7  lcd_putc
+0     39   3    5    267  6.8  lcd_set_cgram_char
+0     48   3    5    285  4.3  do_delay
+0    310  21   27    806  6.5  generate_tone
+0     79   5   13             @DIV3232
+0     37   2    5             @DIV1616
+ Inline        13             @MUL3232
+0     32   2    6             @WRITEBITA
+0     30   2   10    219  3.0  dino1
+0     30   2   10    219  3.0  dino2
+0    308  20    3   1525  3.9  MAIN
+0      3   0    0     88  1.7  @const718
+0     86   6    4     88  1.7  @PSTRINGC7_645
+0      8   1    0   1093  4.3  @const720
+0      1   0    0    167  2.3  @const721
+0      1   0    0   1062  4.3  @const722
+0      8   1    0             @const723
+0      1   0    0             @const724
+0      8   1    0             @const725
+0      9   1    0             @const726
+0      1   0    0             @const728
+0      8   1    0             @const729
+0      6   0    0             @const730
+0      1   0    0             @const731
+0      2   0    0             @const732
+0     21   1    3             @DIV88
+0     89   6    6             @PRINTF_D_645
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               18
+    Statements              187
+    Comments                320
+    Volume (V)              15062
+    Difficulty (D)          70.2
+    Effort to implement (E) 1057750
+    Time to implement (T)   16 hours, 19 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   11
+    Maintainability (MI)    110
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1503  541  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

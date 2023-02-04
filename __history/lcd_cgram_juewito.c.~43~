@@ -1,0 +1,92 @@
+// Proyecto de Lcd , Tercera  practica. realizado por Mi . Jesus Monsalve
+
+#include <16F877A.h>
+#fuses XT, NOWDT, NOPUT, NOBROWNOUT, NOLVP, NOCPD, NOWRT, NOPROTECT, NODEBUG
+#use delay(clock = 4000000)
+
+#include <lcd2.c>
+#include <buzzer_tone.c>
+
+#define LED1 PIN_B2
+#define button PIN_B0
+#define buzzer PIN_B1
+
+int16 ctf = 1000;
+int16 ctf2;
+
+
+//---------SE GENERAN LAS FIGURAS CON CGRAM---------
+
+//dinosaurio sin pata izquierda
+int dinosaurio1[8] = {7,23,22,31,14,2,3,0};
+
+//dinosaurio sin pata derecha
+int dinosaurio2[8] = {7,23,22,31,14,8,12,0};
+
+//cactus grande
+int cactus1[] = {6,22,22,30,30,6,6,31};
+
+//cactus chico
+int cactus2[] = {0,0,12,13,15,12,12,31};
+
+// sol 1
+int sol1[8] = {29,28,25,2,20,0,0,0};
+
+//sol 2
+int sol2[8] = {28,29,24,2,8,0,0,0};
+
+
+////////////////////////hacemos la funcion animacion de dinosaurio corriendo///////////////////////////////
+
+
+void RunDino(x){
+      lcd_putc("\f");//borramos pantalla
+      lcd_gotoxy(1,1); //ubicamos cursor
+      lcd_putc(1);//dibujamos segundo dinosaurio2
+      delay_ms(x/2); //esperamos
+      lcd_putc("\f");//borramos pantalla
+      lcd_putc(2);//dibujamos segundo dinosaurio2
+      delay_ms(x/2);//esperamos
+      
+}
+//////////////////////////////////////////////////////////
+
+
+void main()
+{
+
+   DISABLE_INTERRUPTS(GLOBAL);
+   OUTPUT_LOW(led1);
+   delay_ms(333);
+   //ENABLE_INTERRUPTS(INT_EXT);
+   //ENABLE_INTERRUPTS(GLOBAL);
+   lcd_init();
+   lcd_gotoxy(1,1);
+   printf(lcd_putc, "holis");
+   lcd_gotoxy(1,2);
+   printf(lcd_putc, "000000000000000");
+   delay_ms(ctf);
+   lcd_putc("\f");//borramos pantalla
+   //generate_tone(buzzer, 64, 500);   
+//--------SE ALMACENA LAS FIGURAS EN LA MEMORIA CGRAM -------
+
+      lcd_set_cgram_char(1,dinosaurio1);
+      lcd_set_cgram_char(2,dinosaurio2);
+      lcd_set_cgram_char(3,cactus1);
+      lcd_set_cgram_char(4,cactus2);
+      lcd_set_cgram_char(5,sol1);
+      lcd_set_cgram_char(6,sol2);     
+
+
+         while(input_state(button)==0 )
+{
+      RunDino(ctf/10); 
+   }
+
+   while(input_state(button)==1 )
+{
+      RunDino(ctf); 
+   }
+}
+
+

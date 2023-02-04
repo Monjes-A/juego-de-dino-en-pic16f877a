@@ -1,0 +1,4 @@
+>>> Warning 202 "lcd_cgram_juewito.c" Line 16(6,12): Variable never used:   random
+      Memory usage:   ROM=18%      RAM=3% - 13%
+      0 Errors,  1 Warnings.
+Build Successful.
