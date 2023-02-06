@@ -121,35 +121,11 @@ void main()
    // ENABLE_INTERRUPTS(INT_EXT);
    // ENABLE_INTERRUPTS(GLOBAL);
    lcd_gotoxy(1, 1);
-   printf(lcd_putc, " Mini Dino w.w !");
+   printf(lcd_putc, "holis");
    lcd_gotoxy(1, 2);
-   printf(lcd_putc, " PRESENTADO POR!");
-   OUTPUT_HIGH(vida1);
-   OUTPUT_HIGH(vida2);
-   OUTPUT_HIGH(vida3);
-   delay_ms(1500);
-   OUTPUT_LOW(vida1);
-   OUTPUT_LOW(vida2);
-   OUTPUT_LOW(vida3);
-   delay_ms(1500);
-
-   lcd_gotoxy(1, 1);
-   printf(lcd_putc, "JESUS A MONSALVE");
-   lcd_gotoxy(1, 2);
-   printf(lcd_putc, "     ZERPA.     ");
-   OUTPUT_HIGH(vida1);
-   OUTPUT_HIGH(vida2);
-   OUTPUT_HIGH(vida3);
-   delay_ms(1500);
-   OUTPUT_LOW(vida1);
-   OUTPUT_LOW(vida2);
-   OUTPUT_LOW(vida3);
-   delay_ms(1500);
-
-   lcd_gotoxy(1, 1);
-   printf(lcd_putc, "   NO MATES AL  ");
-   lcd_gotoxy(1, 2);
-   printf(lcd_putc, "   DINOSAURIO.  ");
+   printf(lcd_putc, "000000000000000");
+   delay_ms(ctf);
+   lcd_putc("\f"); // borramos pantalla
 
 menu:
    /// saludamos con los leds
@@ -176,6 +152,8 @@ menu:
    OUTPUT_LOW(vida1);
    OUTPUT_LOW(vida2);
    OUTPUT_LOW(vida3);
+   delay_ms(ctf / 2);
+
    while (input_state(button) == 0)
    {
       dino1(1, 1);      // dibujamos segundo dinosaurio1
@@ -194,13 +172,7 @@ menu:
    {
 
       generate_tone(buzzer, 500, 64);
-      delay_ms(CTF);
-
-      generate_tone(buzzer, 500, 64);
-      delay_ms(CTF);
-
-      generate_tone(buzzer, 1000, 80);
-      delay_ms(CTF);
+      delay_ms(CTF); // esperamos
 
       // RunDino(ctf/5);
    }
@@ -213,7 +185,7 @@ menu:
 
    cuen = 19;
    sr = 0;
-   int vida = 3;
+   int vida=3;
 
    while (TRUE)
    { // HACEMOS UN CICLO INFINITO
@@ -230,25 +202,19 @@ menu:
          OUTPUT_HIGH(vida3);
       }
 
-      if (vida == 2)
+            if (vida == 2)
       {
          OUTPUT_HIGH(vida1);
          OUTPUT_HIGH(vida2);
          OUTPUT_LOW(vida3);
       }
-      if (vida == 1)
+            if (vida == 1)
       {
          OUTPUT_HIGH(vida1);
          OUTPUT_LOW(vida2);
          OUTPUT_LOW(vida3);
       }
 
-      if (vida == 0)
-      {
-         OUTPUT_LOW(vida1);
-         OUTPUT_LOW(vida2);
-         OUTPUT_LOW(vida3);
-      }
 
       if (input(button) == 1)
       {
@@ -294,32 +260,19 @@ menu:
          cuen--;
          if (cuen == 2 && dp == 0)
          {
-            if (vida == 0)
-            {
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 150, 300); /// Reproduce sonido
-               delay_ms(500);
-               lcd_gotoxy(1, 1); // ubicamos cursor
-               lcd_putc("uy x.x se murio ");
-               delay_ms(2000);
-               lcd_gotoxy(1, 1); // ubicamos cursor
-               lcd_putc("tus pts perrooo!");
-               lcd_gotoxy(5, 2); // ubicamos cursor
-               printf(lcd_putc "p="
-                               "%ld",
-                      sr);
-               delay_ms(4000); /// y se resetea el pic despues de un segundo
-               goto menu;
-            }
-            generate_tone(buzzer, 500, 80); /// Reproduce sonido
-            vida--;
-            cuen = 19;
-            lcd_gotoxy(1, 1); // ubicamos cursor
-            lcd_putc("  uy!   -1  vida");
+            generate_tone(buzzer, 500, 64); /// Reproduce sonido
             delay_ms(1000);
+            lcd_gotoxy(1, 1); // ubicamos cursor
+            lcd_putc("uy x.x se murio ");
+            delay_ms(2000);
+            lcd_gotoxy(1, 1); // ubicamos cursor
+            lcd_putc("tus pts perro");
+            lcd_gotoxy(1, 2); // ubicamos cursor
+            printf(lcd_putc "p="
+                            "%ld",
+                   sr);
+            delay_ms(4000); /// y se resetea el pic despues de un segundo
+            goto menu;
          }
 
          if (cuen == 0)
@@ -341,34 +294,21 @@ menu:
 
          //--------------------------------------------Condicion de fin de juego---------------------------------------------
          cuen--;
-         if ((cuen == 1 && dp == 0) || (cuen == 2 && dp == 0)) /////si coinciden el dinosaurio y el cactus en la misma posicion el juego termina
+ if ((cuen==1 && dp==0)||(cuen==2 && dp==0)          /////si coinciden el dinosaurio y el cactus en la misma posicion el juego termina
          {
-            if (vida == 0)
-            {
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 150, 300); /// Reproduce sonido
-               delay_ms(500);
-               lcd_gotoxy(1, 1); // ubicamos cursor
-               lcd_putc("uy x.x se murio ");
-               delay_ms(2000);
-               lcd_gotoxy(1, 1); // ubicamos cursor
-               lcd_putc("tus pts perrooo!");
-               lcd_gotoxy(5, 2); // ubicamos cursor
-               printf(lcd_putc "p="
-                               "%ld",
-                      sr);
-               delay_ms(4000); /// y se resetea el pic despues de un segundo
-               goto menu;
-            }
-            generate_tone(buzzer, 500, 80); /// Reproduce sonido
-            vida--;
-            cuen = 19;
-            lcd_gotoxy(1, 1); // ubicamos cursor
-            lcd_putc("  uy!   -1  vida");
+            generate_tone(buzzer, 500, 64); /// Reproduce sonido
             delay_ms(1000);
+            lcd_gotoxy(1, 1); // ubicamos cursor
+            lcd_putc("uy x.x se murio ");
+            delay_ms(2000);
+            lcd_gotoxy(1, 1); // ubicamos cursor
+            lcd_putc("tus pts perro");
+            lcd_gotoxy(1, 2); // ubicamos cursor
+            printf(lcd_putc "p="
+                            "%ld",
+                   sr);
+            delay_ms(4000); /// y se resetea el pic despues de un segundo
+            goto menu;
          }
 
          if (cuen == 0)
@@ -391,37 +331,22 @@ menu:
 
          //--------------------------------------------Condicion de fin de juego---------------------------------------------
          cuen--;
-         if ((cuen == 1 && dp == 0) || (cuen == 2 && dp == 0) ||
-             (cuen == 3 && dp == 0)) /////si coinciden el dinosaurio y el cactus en la misma posicion el juego termina
+ if ((cuen==1 && dp==0)||(cuen==2 && dp==0)||(cuen==3 && dp==0))           /////si coinciden el dinosaurio y el cactus en la misma posicion el juego termina
          {
-            if (vida == 0)
-            {
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 150, 300); /// Reproduce sonido
-               delay_ms(500);
-               lcd_gotoxy(1, 1); // ubicamos cursor
-               lcd_putc("uy x.x se murio ");
-               delay_ms(2000);
-               lcd_gotoxy(1, 1); // ubicamos cursor
-               lcd_putc("tus pts perrooo!");
-               lcd_gotoxy(5, 2); // ubicamos cursor
-               printf(lcd_putc "p="
-                               "%ld",
-                      sr);
-               delay_ms(4000); /// y se resetea el pic despues de un segundo
-               goto menu;
-            }
-            generate_tone(buzzer, 500, 80); /// Reproduce sonido
-            vida--;
-            cuen = 19;
-            lcd_gotoxy(1, 1); // ubicamos cursor
-            lcd_putc("  uy!   -1  vida");
+            generate_tone(buzzer, 500, 64); /// Reproduce sonido
             delay_ms(1000);
+            lcd_gotoxy(1, 1); // ubicamos cursor
+            lcd_putc("uy x.x se murio ");
+            delay_ms(2000);
+            lcd_gotoxy(1, 1); // ubicamos cursor
+            lcd_putc("tus pts perrooo!");
+            lcd_gotoxy(5, 2); // ubicamos cursor
+            printf(lcd_putc "p="
+                            "%ld",
+                   sr);
+            delay_ms(4000); /// y se resetea el pic despues de un segundo
+            goto menu;
          }
-
          if (cuen == 0)
          {
             cuen = 19;

@@ -123,33 +123,14 @@ void main()
    lcd_gotoxy(1, 1);
    printf(lcd_putc, " Mini Dino w.w !");
    lcd_gotoxy(1, 2);
-   printf(lcd_putc, " PRESENTADO POR!");
-   OUTPUT_HIGH(vida1);
-   OUTPUT_HIGH(vida2);
-   OUTPUT_HIGH(vida3);
-   delay_ms(1500);
-   OUTPUT_LOW(vida1);
-   OUTPUT_LOW(vida2);
-   OUTPUT_LOW(vida3);
-   delay_ms(1500);
+   printf(lcd_putc, "¡PRESENTADO POR!");
+   delay_ms(ctf);
 
    lcd_gotoxy(1, 1);
    printf(lcd_putc, "JESUS A MONSALVE");
    lcd_gotoxy(1, 2);
    printf(lcd_putc, "     ZERPA.     ");
-   OUTPUT_HIGH(vida1);
-   OUTPUT_HIGH(vida2);
-   OUTPUT_HIGH(vida3);
-   delay_ms(1500);
-   OUTPUT_LOW(vida1);
-   OUTPUT_LOW(vida2);
-   OUTPUT_LOW(vida3);
-   delay_ms(1500);
-
-   lcd_gotoxy(1, 1);
-   printf(lcd_putc, "   NO MATES AL  ");
-   lcd_gotoxy(1, 2);
-   printf(lcd_putc, "   DINOSAURIO.  ");
+   delay_ms(ctf);
 
 menu:
    /// saludamos con los leds
@@ -176,6 +157,8 @@ menu:
    OUTPUT_LOW(vida1);
    OUTPUT_LOW(vida2);
    OUTPUT_LOW(vida3);
+   delay_ms(ctf / 2);
+
    while (input_state(button) == 0)
    {
       dino1(1, 1);      // dibujamos segundo dinosaurio1
@@ -194,13 +177,7 @@ menu:
    {
 
       generate_tone(buzzer, 500, 64);
-      delay_ms(CTF);
-
-      generate_tone(buzzer, 500, 64);
-      delay_ms(CTF);
-
-      generate_tone(buzzer, 1000, 80);
-      delay_ms(CTF);
+      delay_ms(CTF); // esperamos
 
       // RunDino(ctf/5);
    }
@@ -243,7 +220,7 @@ menu:
          OUTPUT_LOW(vida3);
       }
 
-      if (vida == 0)
+      if (vida ==)
       {
          OUTPUT_LOW(vida1);
          OUTPUT_LOW(vida2);
@@ -296,12 +273,8 @@ menu:
          {
             if (vida == 0)
             {
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 150, 300); /// Reproduce sonido
-               delay_ms(500);
+               generate_tone(buzzer, 500, 80); /// Reproduce sonido
+               delay_ms(1000);
                lcd_gotoxy(1, 1); // ubicamos cursor
                lcd_putc("uy x.x se murio ");
                delay_ms(2000);
@@ -345,12 +318,8 @@ menu:
          {
             if (vida == 0)
             {
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 150, 300); /// Reproduce sonido
-               delay_ms(500);
+               generate_tone(buzzer, 500, 80); /// Reproduce sonido
+               delay_ms(1000);
                lcd_gotoxy(1, 1); // ubicamos cursor
                lcd_putc("uy x.x se murio ");
                delay_ms(2000);
@@ -396,12 +365,8 @@ menu:
          {
             if (vida == 0)
             {
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 400, 150); /// Reproduce sonido
-               delay_ms(500);
-               generate_tone(buzzer, 150, 300); /// Reproduce sonido
-               delay_ms(500);
+               generate_tone(buzzer, 500, 80); /// Reproduce sonido
+               delay_ms(1000);
                lcd_gotoxy(1, 1); // ubicamos cursor
                lcd_putc("uy x.x se murio ");
                delay_ms(2000);
