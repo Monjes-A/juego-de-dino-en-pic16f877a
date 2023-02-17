@@ -17,3 +17,4 @@ int main(void){
   }
   
 }
+//ESTE CODIGO SE USÓ PARA COMPROBAR EL USO DE LA FUNCION RAND() /
