@@ -195,7 +195,7 @@ Project Directory:
     C:\Users\LAPTOP\Documents\ESTUDIOS\universidad\Proyectos en C\juego-de-dino-en-pic16f877a\
 
 Project Files:
-    lcd_cgram_juewito.c                                     [06-feb.-23 16:09  CRC=E6530B31]
+    lcd_cgram_juewito.c                                     [08-feb.-23 14:21  CRC=57271E88]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [18-abr.-14 16:56  CRC=4F277C97]
     lcd2.c                                                  [03-feb.-23 01:00  CRC=EF4AC7AD]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h [08-jun.-11 14:39  CRC=0B6669CF]
@@ -204,7 +204,7 @@ Project Files:
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-ene.-08 13:55  CRC=2D1F019F]
     buzzer_tone.c                                           [13-ago.-20 18:07  CRC=EBBA7B64]
 
-Source signature=2467C52B
+Source signature=953BD882
 
 Units:
     lcd_cgram_juewito (main)

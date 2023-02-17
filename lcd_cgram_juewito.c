@@ -214,6 +214,7 @@ menu:
    cuen = 19;
    sr = 0;
    int vida = 3;
+   random =0 ;
 
    while (TRUE)
    { // HACEMOS UN CICLO INFINITO
@@ -380,7 +381,7 @@ menu:
          lcd_putc("\f");
       } // fin de primer captus
 
-      if (random >= 20 && random < 30)
+      if (random >= 20)
       {
          ///------------------comienza el juego------------------------------------------------------------------------------------------
          cact1(cuen - 1, 2);

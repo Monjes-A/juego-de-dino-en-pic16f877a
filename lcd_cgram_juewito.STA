@@ -1,6 +1,6 @@
 
-ROM used:   3177/8192 (39%)
-            3615/8192 (44%) including unused fragments
+ROM used:   3173/8192 (39%)
+            3611/8192 (44%) including unused fragments
 
             0.9 Average locations per line
             3.6 Average locations per statement
@@ -50,7 +50,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     30   1   10    219  3.0  sole1
 0     30   1   10    219  3.0  sole2
 0     89   3    0    423  4.2  vel_juego
-1   1567  49    3  10656 10.4  MAIN
+1   1563  49    3  10614 10.4  MAIN
 0      9   0    0             @const991
 0     86   3    4             @PSTRINGC7_645
 0      9   0    0             @const993
@@ -85,10 +85,10 @@ Program metrics:
     Functions               19
     Statements              888
     Comments                1092
-    Volume (V)              24304
+    Volume (V)              24257
     Difficulty (D)          81.9
-    Effort to implement (E) 1991532
-    Time to implement (T)   30 hours, 44 minutes
+    Effort to implement (E) 1987607
+    Time to implement (T)   30 hours, 40 minutes
     Est Delivered Bugs (B)  5
     Cyclomatic Complexity   37
     Maintainability (MI)    34
@@ -97,7 +97,7 @@ Program metrics:
 -----------  ----  ----
 00000-00003     4  0  
 00004-007FF  1606  438  
-00800-00FFF  1567  481  
+00800-00FFF  1563  485  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

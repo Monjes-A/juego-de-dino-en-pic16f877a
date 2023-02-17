@@ -2,8 +2,8 @@ C L "MAIN" 0 30 1 "FUNCTION"
 C L "MAIN" 0 30 1 "FUNCTION"
 D G "__PCM__" 0 439 ""5.025""
 D G "__DEVICE__" 0 439 "877"
-D G "__DATE__" 0 439 ""06-feb.-23""
-D G "__TIME__" 0 439 ""16:09:40"" "Proyecto de Lcd , Tercera  practica. realizado por Mi . Jesus Monsalve"
+D G "__DATE__" 0 439 ""08-feb.-23""
+D G "__TIME__" 0 439 ""14:21:49"" "Proyecto de Lcd , Tercera  practica. realizado por Mi . Jesus Monsalve"
 c L "set_tris_a" 1 1 6 "FUNCTION"
 v L "value" 1 37 "int8" `54 
 f B "set_tris_a" 1 37 "void(int8 value)" `53 

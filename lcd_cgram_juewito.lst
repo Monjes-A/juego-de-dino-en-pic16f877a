@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.025, 12197               06-feb.-23 16:09
+CCS PCM C Compiler, Version 5.025, 12197               08-feb.-23 14:21
 
                Filename:   C:\Users\LAPTOP\Documents\ESTUDIOS\universidad\Proyectos en C\juego-de-dino-en-pic16f877a\lcd_cgram_juewito.lst
 
-               ROM used:   3177 words (39%)
+               ROM used:   3173 words (39%)
                            Largest free fragment is 2048
                RAM used:   22 (6%) at main() level
                            60 (16%) worst case
@@ -5739,332 +5739,328 @@ CCS PCM C Compiler, Version 5.025, 12197               06-feb.-23 16:09
 0D0F:  BSF    0A.3
 ....................       } // fin de primer captus 
 ....................  
-....................       if (random >= 20 && random < 30) 
+....................       if (random >=20) 
 0D10:  MOVF   28,W
 0D11:  SUBLW  13
 0D12:  BTFSC  03.0
-0D13:  GOTO   61D
-0D14:  MOVF   28,W
-0D15:  SUBLW  1D
-0D16:  BTFSS  03.0
-0D17:  GOTO   61D
+0D13:  GOTO   619
 ....................       { 
 ....................          ///------------------comienza el juego------------------------------------------------------------------------------------------ 
 ....................          cact1(cuen - 1, 2); 
-0D18:  MOVLW  01
-0D19:  SUBWF  2B,W
-0D1A:  MOVWF  2F
-0D1B:  MOVWF  30
-0D1C:  MOVLW  02
-0D1D:  MOVWF  31
-0D1E:  BCF    0A.3
-0D1F:  CALL   57B
-0D20:  BSF    0A.3
+0D14:  MOVLW  01
+0D15:  SUBWF  2B,W
+0D16:  MOVWF  2F
+0D17:  MOVWF  30
+0D18:  MOVLW  02
+0D19:  MOVWF  31
+0D1A:  BCF    0A.3
+0D1B:  CALL   57B
+0D1C:  BSF    0A.3
 ....................          cact2(cuen - 2, 2); 
+0D1D:  MOVLW  02
+0D1E:  SUBWF  2B,W
+0D1F:  MOVWF  2F
+0D20:  MOVWF  30
 0D21:  MOVLW  02
-0D22:  SUBWF  2B,W
-0D23:  MOVWF  2F
-0D24:  MOVWF  30
-0D25:  MOVLW  02
-0D26:  MOVWF  31
-0D27:  BCF    0A.3
-0D28:  CALL   62E
-0D29:  BSF    0A.3
+0D22:  MOVWF  31
+0D23:  BCF    0A.3
+0D24:  CALL   62E
+0D25:  BSF    0A.3
 ....................          cact1(cuen, 2); 
-0D2A:  MOVF   2B,W
-0D2B:  MOVWF  30
-0D2C:  MOVLW  02
-0D2D:  MOVWF  31
-0D2E:  BCF    0A.3
-0D2F:  CALL   57B
-0D30:  BSF    0A.3
+0D26:  MOVF   2B,W
+0D27:  MOVWF  30
+0D28:  MOVLW  02
+0D29:  MOVWF  31
+0D2A:  BCF    0A.3
+0D2B:  CALL   57B
+0D2C:  BSF    0A.3
 ....................  
 ....................          vel_juego(); 
-0D31:  BCF    0A.3
-0D32:  CALL   597
-0D33:  BSF    0A.3
+0D2D:  BCF    0A.3
+0D2E:  CALL   597
+0D2F:  BSF    0A.3
 ....................  
 ....................          //--------------------------------------------Condicion de fin de juego--------------------------------------------- 
 ....................          cuen--; 
-0D34:  DECF   2B,F
+0D30:  DECF   2B,F
 ....................          if ((cuen == 1 && dp == 0) || (cuen == 2 && dp == 0) || 
 ....................              (cuen == 3 && dp == 0)) /////si coinciden el dinosaurio y el cactus en la misma posicion el juego termina 
-0D35:  DECFSZ 2B,W
-0D36:  GOTO   539
-0D37:  BTFSS  29.0
-0D38:  GOTO   545
-0D39:  MOVF   2B,W
-0D3A:  SUBLW  02
-0D3B:  BTFSS  03.2
-0D3C:  GOTO   53F
-0D3D:  BTFSS  29.0
-0D3E:  GOTO   545
-0D3F:  MOVF   2B,W
-0D40:  SUBLW  03
-0D41:  BTFSS  03.2
-0D42:  GOTO   5F9
-0D43:  BTFSC  29.0
-0D44:  GOTO   5F9
+0D31:  DECFSZ 2B,W
+0D32:  GOTO   535
+0D33:  BTFSS  29.0
+0D34:  GOTO   541
+0D35:  MOVF   2B,W
+0D36:  SUBLW  02
+0D37:  BTFSS  03.2
+0D38:  GOTO   53B
+0D39:  BTFSS  29.0
+0D3A:  GOTO   541
+0D3B:  MOVF   2B,W
+0D3C:  SUBLW  03
+0D3D:  BTFSS  03.2
+0D3E:  GOTO   5F5
+0D3F:  BTFSC  29.0
+0D40:  GOTO   5F5
 ....................          { 
 ....................             if (vida == 0) 
-0D45:  MOVF   2E,F
-0D46:  BTFSS  03.2
-0D47:  GOTO   5D2
+0D41:  MOVF   2E,F
+0D42:  BTFSS  03.2
+0D43:  GOTO   5CE
 ....................             { 
 ....................                generate_tone(buzzer, 400, 150); /// Reproduce sonido 
-0D48:  MOVLW  31
-0D49:  MOVWF  2F
-0D4A:  MOVLW  01
-0D4B:  MOVWF  31
-0D4C:  MOVLW  90
-0D4D:  MOVWF  30
-0D4E:  CLRF   33
-0D4F:  MOVLW  96
-0D50:  MOVWF  32
-0D51:  BCF    0A.3
-0D52:  CALL   3B3
-0D53:  BSF    0A.3
+0D44:  MOVLW  31
+0D45:  MOVWF  2F
+0D46:  MOVLW  01
+0D47:  MOVWF  31
+0D48:  MOVLW  90
+0D49:  MOVWF  30
+0D4A:  CLRF   33
+0D4B:  MOVLW  96
+0D4C:  MOVWF  32
+0D4D:  BCF    0A.3
+0D4E:  CALL   3B3
+0D4F:  BSF    0A.3
 ....................                delay_ms(500); 
-0D54:  MOVLW  02
-0D55:  MOVWF  2F
-0D56:  MOVLW  FA
-0D57:  MOVWF  47
-0D58:  BCF    0A.3
-0D59:  CALL   0BB
-0D5A:  BSF    0A.3
-0D5B:  DECFSZ 2F,F
-0D5C:  GOTO   556
+0D50:  MOVLW  02
+0D51:  MOVWF  2F
+0D52:  MOVLW  FA
+0D53:  MOVWF  47
+0D54:  BCF    0A.3
+0D55:  CALL   0BB
+0D56:  BSF    0A.3
+0D57:  DECFSZ 2F,F
+0D58:  GOTO   552
 ....................                generate_tone(buzzer, 400, 150); /// Reproduce sonido 
-0D5D:  MOVLW  31
-0D5E:  MOVWF  2F
-0D5F:  MOVLW  01
-0D60:  MOVWF  31
-0D61:  MOVLW  90
-0D62:  MOVWF  30
-0D63:  CLRF   33
-0D64:  MOVLW  96
-0D65:  MOVWF  32
-0D66:  BCF    0A.3
-0D67:  CALL   3B3
-0D68:  BSF    0A.3
+0D59:  MOVLW  31
+0D5A:  MOVWF  2F
+0D5B:  MOVLW  01
+0D5C:  MOVWF  31
+0D5D:  MOVLW  90
+0D5E:  MOVWF  30
+0D5F:  CLRF   33
+0D60:  MOVLW  96
+0D61:  MOVWF  32
+0D62:  BCF    0A.3
+0D63:  CALL   3B3
+0D64:  BSF    0A.3
 ....................                delay_ms(500); 
-0D69:  MOVLW  02
-0D6A:  MOVWF  2F
-0D6B:  MOVLW  FA
-0D6C:  MOVWF  47
-0D6D:  BCF    0A.3
-0D6E:  CALL   0BB
-0D6F:  BSF    0A.3
-0D70:  DECFSZ 2F,F
-0D71:  GOTO   56B
+0D65:  MOVLW  02
+0D66:  MOVWF  2F
+0D67:  MOVLW  FA
+0D68:  MOVWF  47
+0D69:  BCF    0A.3
+0D6A:  CALL   0BB
+0D6B:  BSF    0A.3
+0D6C:  DECFSZ 2F,F
+0D6D:  GOTO   567
 ....................                generate_tone(buzzer, 150, 300); /// Reproduce sonido 
-0D72:  MOVLW  31
-0D73:  MOVWF  2F
-0D74:  CLRF   31
-0D75:  MOVLW  96
-0D76:  MOVWF  30
-0D77:  MOVLW  01
-0D78:  MOVWF  33
-0D79:  MOVLW  2C
-0D7A:  MOVWF  32
-0D7B:  BCF    0A.3
-0D7C:  CALL   3B3
-0D7D:  BSF    0A.3
+0D6E:  MOVLW  31
+0D6F:  MOVWF  2F
+0D70:  CLRF   31
+0D71:  MOVLW  96
+0D72:  MOVWF  30
+0D73:  MOVLW  01
+0D74:  MOVWF  33
+0D75:  MOVLW  2C
+0D76:  MOVWF  32
+0D77:  BCF    0A.3
+0D78:  CALL   3B3
+0D79:  BSF    0A.3
 ....................                delay_ms(500); 
-0D7E:  MOVLW  02
-0D7F:  MOVWF  2F
-0D80:  MOVLW  FA
-0D81:  MOVWF  47
-0D82:  BCF    0A.3
-0D83:  CALL   0BB
-0D84:  BSF    0A.3
-0D85:  DECFSZ 2F,F
-0D86:  GOTO   580
+0D7A:  MOVLW  02
+0D7B:  MOVWF  2F
+0D7C:  MOVLW  FA
+0D7D:  MOVWF  47
+0D7E:  BCF    0A.3
+0D7F:  CALL   0BB
+0D80:  BSF    0A.3
+0D81:  DECFSZ 2F,F
+0D82:  GOTO   57C
 ....................                lcd_gotoxy(1, 1); // ubicamos cursor 
-0D87:  MOVLW  01
-0D88:  MOVWF  3B
-0D89:  MOVWF  3C
-0D8A:  BCF    0A.3
-0D8B:  CALL   1CE
-0D8C:  BSF    0A.3
+0D83:  MOVLW  01
+0D84:  MOVWF  3B
+0D85:  MOVWF  3C
+0D86:  BCF    0A.3
+0D87:  CALL   1CE
+0D88:  BSF    0A.3
 ....................                lcd_putc("uy x.x se murio "); 
-0D8D:  MOVLW  9F
-0D8E:  BSF    03.6
-0D8F:  MOVWF  0D
-0D90:  MOVLW  00
-0D91:  MOVWF  0F
-0D92:  BCF    0A.3
-0D93:  BCF    03.6
-0D94:  CALL   20C
-0D95:  BSF    0A.3
+0D89:  MOVLW  9F
+0D8A:  BSF    03.6
+0D8B:  MOVWF  0D
+0D8C:  MOVLW  00
+0D8D:  MOVWF  0F
+0D8E:  BCF    0A.3
+0D8F:  BCF    03.6
+0D90:  CALL   20C
+0D91:  BSF    0A.3
 ....................                delay_ms(2000); 
-0D96:  MOVLW  08
-0D97:  MOVWF  2F
-0D98:  MOVLW  FA
-0D99:  MOVWF  47
-0D9A:  BCF    0A.3
-0D9B:  CALL   0BB
-0D9C:  BSF    0A.3
-0D9D:  DECFSZ 2F,F
-0D9E:  GOTO   598
+0D92:  MOVLW  08
+0D93:  MOVWF  2F
+0D94:  MOVLW  FA
+0D95:  MOVWF  47
+0D96:  BCF    0A.3
+0D97:  CALL   0BB
+0D98:  BSF    0A.3
+0D99:  DECFSZ 2F,F
+0D9A:  GOTO   594
 ....................                lcd_gotoxy(1, 1); // ubicamos cursor 
-0D9F:  MOVLW  01
-0DA0:  MOVWF  3B
-0DA1:  MOVWF  3C
-0DA2:  BCF    0A.3
-0DA3:  CALL   1CE
-0DA4:  BSF    0A.3
+0D9B:  MOVLW  01
+0D9C:  MOVWF  3B
+0D9D:  MOVWF  3C
+0D9E:  BCF    0A.3
+0D9F:  CALL   1CE
+0DA0:  BSF    0A.3
 ....................                lcd_putc("tus pts perrooo!"); 
-0DA5:  MOVLW  A8
-0DA6:  BSF    03.6
-0DA7:  MOVWF  0D
-0DA8:  MOVLW  00
-0DA9:  MOVWF  0F
-0DAA:  BCF    0A.3
-0DAB:  BCF    03.6
-0DAC:  CALL   20C
-0DAD:  BSF    0A.3
+0DA1:  MOVLW  A8
+0DA2:  BSF    03.6
+0DA3:  MOVWF  0D
+0DA4:  MOVLW  00
+0DA5:  MOVWF  0F
+0DA6:  BCF    0A.3
+0DA7:  BCF    03.6
+0DA8:  CALL   20C
+0DA9:  BSF    0A.3
 ....................                lcd_gotoxy(5, 2); // ubicamos cursor 
-0DAE:  MOVLW  05
-0DAF:  MOVWF  3B
-0DB0:  MOVLW  02
-0DB1:  MOVWF  3C
-0DB2:  BCF    0A.3
-0DB3:  CALL   1CE
-0DB4:  BSF    0A.3
+0DAA:  MOVLW  05
+0DAB:  MOVWF  3B
+0DAC:  MOVLW  02
+0DAD:  MOVWF  3C
+0DAE:  BCF    0A.3
+0DAF:  CALL   1CE
+0DB0:  BSF    0A.3
 ....................                printf(lcd_putc "p=" 
 ....................                                "%ld", 
 ....................                       sr); 
-0DB5:  MOVLW  70
-0DB6:  MOVWF  3A
-0DB7:  BCF    0A.3
-0DB8:  CALL   1E0
-0DB9:  BSF    0A.3
-0DBA:  MOVLW  3D
-0DBB:  MOVWF  3A
-0DBC:  BCF    0A.3
-0DBD:  CALL   1E0
-0DBE:  BSF    0A.3
-0DBF:  MOVLW  10
-0DC0:  MOVWF  04
-0DC1:  MOVF   2D,W
-0DC2:  MOVWF  30
-0DC3:  MOVF   2C,W
-0DC4:  MOVWF  2F
-0DC5:  BCF    0A.3
-0DC6:  CALL   4BF
-0DC7:  BSF    0A.3
+0DB1:  MOVLW  70
+0DB2:  MOVWF  3A
+0DB3:  BCF    0A.3
+0DB4:  CALL   1E0
+0DB5:  BSF    0A.3
+0DB6:  MOVLW  3D
+0DB7:  MOVWF  3A
+0DB8:  BCF    0A.3
+0DB9:  CALL   1E0
+0DBA:  BSF    0A.3
+0DBB:  MOVLW  10
+0DBC:  MOVWF  04
+0DBD:  MOVF   2D,W
+0DBE:  MOVWF  30
+0DBF:  MOVF   2C,W
+0DC0:  MOVWF  2F
+0DC1:  BCF    0A.3
+0DC2:  CALL   4BF
+0DC3:  BSF    0A.3
 ....................                delay_ms(4000); /// y se resetea el pic despues de un segundo 
-0DC8:  MOVLW  10
-0DC9:  MOVWF  2F
-0DCA:  MOVLW  FA
-0DCB:  MOVWF  47
-0DCC:  BCF    0A.3
-0DCD:  CALL   0BB
-0DCE:  BSF    0A.3
-0DCF:  DECFSZ 2F,F
-0DD0:  GOTO   5CA
+0DC4:  MOVLW  10
+0DC5:  MOVWF  2F
+0DC6:  MOVLW  FA
+0DC7:  MOVWF  47
+0DC8:  BCF    0A.3
+0DC9:  CALL   0BB
+0DCA:  BSF    0A.3
+0DCB:  DECFSZ 2F,F
+0DCC:  GOTO   5C6
 ....................                goto menu; 
-0DD1:  GOTO   0DF
+0DCD:  GOTO   0DF
 ....................             } 
 ....................             generate_tone(buzzer, 500, 80); /// Reproduce sonido 
-0DD2:  MOVLW  31
-0DD3:  MOVWF  2F
-0DD4:  MOVLW  01
-0DD5:  MOVWF  31
-0DD6:  MOVLW  F4
-0DD7:  MOVWF  30
-0DD8:  CLRF   33
-0DD9:  MOVLW  50
-0DDA:  MOVWF  32
-0DDB:  BCF    0A.3
-0DDC:  CALL   3B3
-0DDD:  BSF    0A.3
+0DCE:  MOVLW  31
+0DCF:  MOVWF  2F
+0DD0:  MOVLW  01
+0DD1:  MOVWF  31
+0DD2:  MOVLW  F4
+0DD3:  MOVWF  30
+0DD4:  CLRF   33
+0DD5:  MOVLW  50
+0DD6:  MOVWF  32
+0DD7:  BCF    0A.3
+0DD8:  CALL   3B3
+0DD9:  BSF    0A.3
 ....................             vida--; 
-0DDE:  DECF   2E,F
+0DDA:  DECF   2E,F
 ....................             cuen = 19; 
-0DDF:  MOVLW  13
-0DE0:  MOVWF  2B
+0DDB:  MOVLW  13
+0DDC:  MOVWF  2B
 ....................             lcd_gotoxy(1, 1); // ubicamos cursor 
-0DE1:  MOVLW  01
-0DE2:  MOVWF  3B
-0DE3:  MOVWF  3C
-0DE4:  BCF    0A.3
-0DE5:  CALL   1CE
-0DE6:  BSF    0A.3
+0DDD:  MOVLW  01
+0DDE:  MOVWF  3B
+0DDF:  MOVWF  3C
+0DE0:  BCF    0A.3
+0DE1:  CALL   1CE
+0DE2:  BSF    0A.3
 ....................             lcd_putc("  uy!   -1  vida"); 
-0DE7:  MOVLW  B1
-0DE8:  BSF    03.6
-0DE9:  MOVWF  0D
-0DEA:  MOVLW  00
-0DEB:  MOVWF  0F
-0DEC:  BCF    0A.3
-0DED:  BCF    03.6
-0DEE:  CALL   20C
-0DEF:  BSF    0A.3
+0DE3:  MOVLW  B1
+0DE4:  BSF    03.6
+0DE5:  MOVWF  0D
+0DE6:  MOVLW  00
+0DE7:  MOVWF  0F
+0DE8:  BCF    0A.3
+0DE9:  BCF    03.6
+0DEA:  CALL   20C
+0DEB:  BSF    0A.3
 ....................             delay_ms(1000); 
-0DF0:  MOVLW  04
-0DF1:  MOVWF  2F
-0DF2:  MOVLW  FA
-0DF3:  MOVWF  47
-0DF4:  BCF    0A.3
-0DF5:  CALL   0BB
-0DF6:  BSF    0A.3
-0DF7:  DECFSZ 2F,F
-0DF8:  GOTO   5F2
+0DEC:  MOVLW  04
+0DED:  MOVWF  2F
+0DEE:  MOVLW  FA
+0DEF:  MOVWF  47
+0DF0:  BCF    0A.3
+0DF1:  CALL   0BB
+0DF2:  BSF    0A.3
+0DF3:  DECFSZ 2F,F
+0DF4:  GOTO   5EE
 ....................          } 
 ....................  
 ....................          if (cuen == 0) 
-0DF9:  MOVF   2B,F
-0DFA:  BTFSS  03.2
-0DFB:  GOTO   614
+0DF5:  MOVF   2B,F
+0DF6:  BTFSS  03.2
+0DF7:  GOTO   610
 ....................          { 
 ....................             cuen = 19; 
-0DFC:  MOVLW  13
-0DFD:  MOVWF  2B
+0DF8:  MOVLW  13
+0DF9:  MOVWF  2B
 ....................             sr++; 
-0DFE:  INCF   2C,F
-0DFF:  BTFSC  03.2
-0E00:  INCF   2D,F
+0DFA:  INCF   2C,F
+0DFB:  BTFSC  03.2
+0DFC:  INCF   2D,F
 ....................             random = rand() % 31; 
-0E01:  BCF    0A.3
-0E02:  CALL   5F0
-0E03:  BSF    0A.3
-0E04:  MOVF   79,W
-0E05:  MOVWF  30
-0E06:  MOVF   78,W
-0E07:  MOVWF  2F
-0E08:  MOVF   30,W
-0E09:  MOVWF  43
-0E0A:  MOVF   2F,W
-0E0B:  MOVWF  42
-0E0C:  CLRF   45
-0E0D:  MOVLW  1F
-0E0E:  MOVWF  44
-0E0F:  BCF    0A.3
-0E10:  CALL   314
-0E11:  BSF    0A.3
-0E12:  MOVF   77,W
-0E13:  MOVWF  28
+0DFD:  BCF    0A.3
+0DFE:  CALL   5F0
+0DFF:  BSF    0A.3
+0E00:  MOVF   79,W
+0E01:  MOVWF  30
+0E02:  MOVF   78,W
+0E03:  MOVWF  2F
+0E04:  MOVF   30,W
+0E05:  MOVWF  43
+0E06:  MOVF   2F,W
+0E07:  MOVWF  42
+0E08:  CLRF   45
+0E09:  MOVLW  1F
+0E0A:  MOVWF  44
+0E0B:  BCF    0A.3
+0E0C:  CALL   314
+0E0D:  BSF    0A.3
+0E0E:  MOVF   77,W
+0E0F:  MOVWF  28
 ....................          } 
 ....................  
 ....................          lcd_putc("\f"); 
-0E14:  MOVLW  BA
-0E15:  BSF    03.6
-0E16:  MOVWF  0D
-0E17:  MOVLW  00
-0E18:  MOVWF  0F
-0E19:  BCF    0A.3
-0E1A:  BCF    03.6
-0E1B:  CALL   20C
-0E1C:  BSF    0A.3
+0E10:  MOVLW  BA
+0E11:  BSF    03.6
+0E12:  MOVWF  0D
+0E13:  MOVLW  00
+0E14:  MOVWF  0F
+0E15:  BCF    0A.3
+0E16:  BCF    03.6
+0E17:  CALL   20C
+0E18:  BSF    0A.3
 ....................       } // fin de primer captus 
-0E1D:  GOTO   282
+0E19:  GOTO   282
 ....................  
 ....................    } // FIN DEL CICLO 
 ....................  
 .................... } // fin de main 
-0E1E:  SLEEP
+0E1A:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F39   XT NOWDT NOPUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
